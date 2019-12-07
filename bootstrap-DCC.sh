@@ -17,5 +17,5 @@ title "Get the devcontainer-common code so that setup-* scripts have access to f
 git clone --recurse https://github.com/shah/devcontainer-common $DCC_HOME
 
 mkdir -p $DCC_HOME/bin
-curl https://github.com/${JSONNET_REPO}/releases/download/${JSONNET_VERSION}/jsonnet-bin-${JSONNET_VERSION}-linux.tar.gz \
+curl -L https://github.com/${JSONNET_REPO}/releases/download/${JSONNET_VERSION}/jsonnet-bin-${JSONNET_VERSION}-linux.tar.gz \
      | tar -xz -C $DCC_HOME/bin
