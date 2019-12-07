@@ -12,4 +12,4 @@ title "Install core utilities necessary to run setup-*.sh scripts"
 apt-get install -y git curl make wget
 
 title "Get the devcontainer-common code so that setup-* scripts have access to files"
-sudo git clone --recurse https://github.com/shah/devcontainer-common $DCC_HOME
+git clone --recurse https://github.com/shah/devcontainer-common $DCC_HOME
