@@ -13,3 +13,4 @@ apt-get install -y zsh zsh-antigen
 cp $DCC_HOME/shell/.zshrc ~/.zshrc
 cp $DCC_HOME/shell/.antigenrc ~/.antigenrc
 cp $DCC_HOME/shell/.p10k.zsh ~/.p10k.zsh
+cp $DCC_HOME/shell/.z ~/.z
