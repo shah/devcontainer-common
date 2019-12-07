@@ -9,7 +9,7 @@ title() {
 export DCC_HOME=${DCC_HOME:-/etc/devcontainer-common}
 
 title "Setup command line productivity tools for the current user"
-apt-get install -y zsh zsh-antigen
+apt-get install -y zsh zsh-antigen tree
 cp $DCC_HOME/shell/.zshrc ~/.zshrc
 cp $DCC_HOME/shell/.antigenrc ~/.antigenrc
 cp $DCC_HOME/shell/.p10k.zsh ~/.p10k.zsh
