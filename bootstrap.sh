@@ -16,6 +16,9 @@ apt-get install -y git curl make wget jq
 title "Get the devcontainer-common code so that setup-* scripts have access to files"
 git clone --recurse https://github.com/shah/devcontainer-common $DCC_HOME
 
+title "Install the latest version of jsonnet into the devcontainer and /usr/bin"
 mkdir -p $DCC_HOME/bin
 curl -L https://github.com/${JSONNET_REPO}/releases/download/${JSONNET_VERSION}/jsonnet-bin-${JSONNET_VERSION}-linux.tar.gz \
      | tar -xz -C $DCC_HOME/bin
+cp $DCC_HOME/bin/jsonnet /usr/bin/jsonnet
+cp $DCC_HOME/bin/jsonnetfmt /usr/bin/jsonnetfmt
