@@ -12,7 +12,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle rupa/z
 
-# Select theme.
+# TODO: This should work, but having to manually install due to freezing issues in some devcontainers
 # antigen theme romkatv/powerlevel10k
 
 # Tell Antigen that you're done.
