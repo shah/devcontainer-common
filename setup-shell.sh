@@ -9,7 +9,7 @@ title() {
 export DCC_HOME=${DCC_HOME:-/etc/devcontainer-common}
 
 # We use zsh and antigen plus some default utilities so install those
-apt-get install -y zsh zsh-antigen tree
+apt-get install -y zsh zsh-antigen tree iproute2
 
 # We expect this script to be passed in the usernames we're setting up
 for user in root "$@"
