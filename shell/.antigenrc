@@ -13,7 +13,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle rupa/z
 
 # Select theme.
-antigen theme romkatv/powerlevel10k
+# antigen theme romkatv/powerlevel10k
 
 # Tell Antigen that you're done.
 antigen apply
