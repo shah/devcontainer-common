@@ -23,11 +23,15 @@ ENV DCC_HOME=/etc/devcontainer-common
 COPY requirements.txt /tmp/pip-tmp/
 
 RUN apt-get update \
-    && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
+    && apt-get -y install --no-install-recommends apt-utils dialog locale 2>&1 \
     #
     # Install the files that help prepare common devcontainer artifacts into $DCC_HOME
     && apt-get -y install curl \
     && curl https://raw.githubusercontent.com/shah/devcontainer-common/master/bin/bootstrap.sh | bash \
+    #
+    # Make sure we don't see "Cannot set LC_CTYPE to default locale: No such file or directory" errors
+    && cp $DCC_HOME/default_etc_locale.gen /etc/locale.gen \
+    && locale-gen \
     #
     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
     && apt-get -y install git iproute2 procps lsb-release \
