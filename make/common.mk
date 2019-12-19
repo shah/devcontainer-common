@@ -27,13 +27,10 @@ YELLOW := $(shell tput -Txterm setaf 3)
 WHITE  := $(shell tput -Txterm setaf 7)
 RESET  := $(shell tput -Txterm sgr0)
 
-comma := ,
-define logInfo
-	if [ "$(CCF_LOG_LEVEL)" = 'INFO' ]; then
-		echo "$1"
-	fi
-endef
+# This is useful if you want to put , into $(error ...) or ($info ...) messages
+COMMA := ,
 
+# This is useful if you want to put \n into $(error ...) or ($info ...) messages
 define NEWLINE
 
 
