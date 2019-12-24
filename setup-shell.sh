@@ -9,7 +9,7 @@ title() {
 export DCC_HOME=${DCC_HOME:-/etc/devcontainer-common}
 
 # We use zsh and antigen plus some default utilities so install those
-apt-get install -y zsh zsh-antigen tree iproute2
+apt-get install -y zsh zsh-antigen tree gawk iproute2
 
 # We use powerlevel10k theme so get the latest version
 # TODO: For some reason, when it's loaded through Antigen in devcontainers, 
