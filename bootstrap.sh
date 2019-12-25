@@ -20,7 +20,7 @@ export OPA_VERSION=`curl -s https://api.github.com/repos/${OPA_REPO}/releases/la
 
 
 title "Install core utilities necessary to run setup-*.sh scripts"
-apt-get install -y git curl make wget jq
+apt-get install -y git curl make wget jq bzip2
 
 title "Get the devcontainer-common code so that setup-* scripts have access to files"
 git clone --recurse https://github.com/shah/devcontainer-common $DCC_HOME
