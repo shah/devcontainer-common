@@ -11,9 +11,9 @@
     "explorer.openEditors.visible": 0,
     "terminal.integrated.shell.linux": "/bin/zsh",
 
-    // This font comes from https://github.com/AaronFriel/nerd-fonts/releases/tag/v1.2.0
-    // CascadiaCode.Nerd.Font.Complete.ttf
-    "terminal.integrated.fontFamily": "CascadiaCode Nerd Font"
+    // This font comes from https://github.com/AaronFriel/nerd-fonts/releases/tag/v1.2.1
+    // CascadianCode-RegularNF.ttf
+    "terminal.integrated.fontFamily": "CascadianCode NF"
   },
 
   // Developers can run [Datasette](https://github.com/simonw/datasette), which defaults to port 8001
