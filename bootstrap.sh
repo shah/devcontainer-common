@@ -11,6 +11,8 @@ export JSONNET_REPO="google/jsonnet"
 export JSONNET_VERSION=`curl -s https://api.github.com/repos/${JSONNET_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
 export CUE_REPO="cuelang/cue"
 export CUE_VERSION=`curl -s https://api.github.com/repos/${CUE_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
+export JK_REPO="jkcfg/jk"
+export JK_VERSION=`curl -s https://api.github.com/repos/${JK_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
 
 title "Install core utilities necessary to run setup-*.sh scripts"
 apt-get install -y git curl make wget jq
@@ -18,7 +20,7 @@ apt-get install -y git curl make wget jq
 title "Get the devcontainer-common code so that setup-* scripts have access to files"
 git clone --recurse https://github.com/shah/devcontainer-common $DCC_HOME
 
-title "Install the latest version of jsonnet into the devcontainer and /usr/bin"
+title "Install the latest version of jsonnet data templating language into the devcontainer and /usr/bin"
 mkdir -p $DCC_HOME/bin
 curl -L https://github.com/${JSONNET_REPO}/releases/download/${JSONNET_VERSION}/jsonnet-bin-${JSONNET_VERSION}-linux.tar.gz \
      | tar -xz -C $DCC_HOME/bin
@@ -31,3 +33,6 @@ curl -L https://github.com/${CUE_REPO}/releases/download/${CUE_VERSION}/cue_${CU
      | tar -xz -C $DCC_HOME/bin cue
 cp $DCC_HOME/bin/cue /usr/bin/cue
 
+title "Install the latest version of jk data templating language into the devcontainer and /usr/bin"
+curl -Lo /usr/bin/jk https://github.com/${JK_REPO}/releases/download/${JK_VERSION}/jk-linux-amd64
+chmod +x /usr/bin/jk
