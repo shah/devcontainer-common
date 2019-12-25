@@ -15,6 +15,9 @@ export JK_REPO="jkcfg/jk"
 export JK_VERSION=`curl -s https://api.github.com/repos/${JK_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
 export DHALL_REPO="dhall-lang/dhall-haskell"
 export DHALL_VERSION=`curl -s https://api.github.com/repos/${DHALL_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
+export OPA_REPO="open-policy-agent/opa"
+export OPA_VERSION=`curl -s https://api.github.com/repos/${OPA_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
+
 
 title "Install core utilities necessary to run setup-*.sh scripts"
 apt-get install -y git curl make wget jq
@@ -45,3 +48,8 @@ curl -L https://github.com/${DHALL_REPO}/releases/download/${DHALL_VERSION}/dhal
      | tar -x --bzip2 -C $DCC_HOME ./bin/dhall
 cp $DCC_HOME/bin/dhall /usr/bin/dhall
 # TODO still need to get the dhall-bash, dhall-json, dhall-yaml, etc. utilities?
+
+title "Install the latest version of OPA policy engine into the devcontainer and /usr/bin"
+curl -Lo $DCC_HOME/bin/opa https://github.com/${OPA_REPO}/releases/download/${OPA_VERSION}/opa_linux_amd64
+chmod +x $DCC_HOME/bin/opa
+cp $DCC_HOME/bin/opa /usr/bin/opa
