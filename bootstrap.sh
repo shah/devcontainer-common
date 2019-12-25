@@ -13,6 +13,8 @@ export CUE_REPO="cuelang/cue"
 export CUE_VERSION=`curl -s https://api.github.com/repos/${CUE_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
 export JK_REPO="jkcfg/jk"
 export JK_VERSION=`curl -s https://api.github.com/repos/${JK_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
+export DHALL_REPO="dhall-lang/dhall-haskell"
+export DHALL_VERSION=`curl -s https://api.github.com/repos/${DHALL_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
 
 title "Install core utilities necessary to run setup-*.sh scripts"
 apt-get install -y git curl make wget jq
@@ -34,5 +36,12 @@ curl -L https://github.com/${CUE_REPO}/releases/download/${CUE_VERSION}/cue_${CU
 cp $DCC_HOME/bin/cue /usr/bin/cue
 
 title "Install the latest version of jk data templating language into the devcontainer and /usr/bin"
-curl -Lo /usr/bin/jk https://github.com/${JK_REPO}/releases/download/${JK_VERSION}/jk-linux-amd64
-chmod +x /usr/bin/jk
+curl -Lo $DCC_HOME/bin/jk https://github.com/${JK_REPO}/releases/download/${JK_VERSION}/jk-linux-amd64
+chmod +x $DCC_HOME/bin/jk
+cp $DCC_HOME/bin/jk /usr/bin/jk
+
+title "Install the latest version of Dhall configuration language into the devcontainer and /usr/bin"
+curl -L https://github.com/${DHALL_REPO}/releases/download/${DHALL_VERSION}/dhall-${DHALL_VERSION}-x86_64-linux.tar.bz2 \
+     | tar -x --bzip2 -C $DCC_HOME ./bin/dhall
+cp $DCC_HOME/bin/dhall /usr/bin/dhall
+# TODO still need to get the dhall-bash, dhall-json, dhall-yaml, etc. utilities?
