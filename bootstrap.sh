@@ -61,4 +61,4 @@ curl -L $DCC_HOME/bin/hugo https://github.com/${HUGO_REPO}/releases/download/${H
 cp $DCC_HOME/bin/hugo /usr/bin/hugo
 
 title "Install the latest version of Deno Typescript and Javascript platform"
-curl -fsSL https://deno.land/x/install/install.sh | sudo DENO_INSTALL=/usr/local sh
+curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh
