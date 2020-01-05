@@ -17,7 +17,8 @@ export DHALL_REPO="dhall-lang/dhall-haskell"
 export DHALL_VERSION=`curl -s https://api.github.com/repos/${DHALL_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
 export OPA_REPO="open-policy-agent/opa"
 export OPA_VERSION=`curl -s https://api.github.com/repos/${OPA_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
-
+export HUGO_REPO="gohugoio/hugo"
+export HUGO_VERSION=`curl -s https://api.github.com/repos/${HUGO_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
 
 title "Install core utilities necessary to run setup-*.sh scripts"
 apt-get install -y git curl make wget jq bzip2
@@ -53,3 +54,11 @@ title "Install the latest version of OPA policy engine into the devcontainer and
 curl -Lo $DCC_HOME/bin/opa https://github.com/${OPA_REPO}/releases/download/${OPA_VERSION}/opa_linux_amd64
 chmod +x $DCC_HOME/bin/opa
 cp $DCC_HOME/bin/opa /usr/bin/opa
+
+title "Install the latest version of Hugo static site generator"
+curl -L $DCC_HOME/bin/hugo https://github.com/${HUGO_REPO}/releases/download/${HUGO_VERSION}/hugo_${HUGO_VERSION:1}_Linux-64bit.tar.gz \
+     | tar -xz -C $DCC_HOME/bin hugo
+cp $DCC_HOME/bin/hugo /usr/bin/hugo
+
+title "Install the latest version of Deno Typescript and Javascript platform"
+curl -fsSL https://deno.land/x/install/install.sh | sudo DENO_INSTALL=/usr/local sh
