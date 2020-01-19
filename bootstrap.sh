@@ -21,7 +21,7 @@ export HUGO_REPO="gohugoio/hugo"
 export HUGO_VERSION=`curl -s https://api.github.com/repos/${HUGO_REPO}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
 
 title "Install core utilities necessary to run setup-*.sh scripts"
-apt-get install -y git curl make wget jq bzip2
+apt-get install -y git curl make wget jq bzip2 graphviz
 
 title "Get the devcontainer-common code so that setup-* scripts have access to files"
 git clone --recurse https://github.com/shah/devcontainer-common $DCC_HOME
