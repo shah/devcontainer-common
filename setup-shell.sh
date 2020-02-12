@@ -26,6 +26,7 @@ do
     cp $DCC_HOME/shell/.antigenrc $userHome/.antigenrc
     cp $DCC_HOME/shell/.p10k.zsh $userHome/.p10k.zsh
     cp $DCC_HOME/shell/.z $userHome/.z
+    chown $user:$user $userHome/.antigenrc $userHome/.p10k.zsh $userHome/.z $userHome/.zshrc
 
     title "Switch shell for $user in to /bin/zsh"
     usermod --shell /bin/zsh $user
